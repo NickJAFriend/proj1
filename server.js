@@ -16,7 +16,7 @@ const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 
 app.use(express.json());
-app.use(express.urlencoded({limit: '10mb', extended: false}));
+app.use(express.urlencoded({limit: '10mb', extended: true}));
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
 const db = mongoose.connection
