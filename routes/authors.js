@@ -4,20 +4,24 @@ const Author = require('../models/author')
 
 
 // All Authors Route
-router.get('/', (req,res)=> {
-    res.render('authors/index')
+router.get('/', async (req,res)=> {
+    try {
+        const authors = await Author.find({})
+        res.render('authors/index', {authors: authors})
+    } catch {
+        res.redirect('/')
+    }
+    
 })
 
 // New Authors Route
 router.get('/new', (req,res)=> {
-
     res.render('authors/new', { author: new Author()})
 })
 
 //Create Author Route
 router.post('/', async (req, res)=> {
-    console.log("Create Author Route initiated...")
-
+ 
     const author = new Author({
         name: req.body.name
     })
