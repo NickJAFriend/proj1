@@ -1,6 +1,5 @@
-const express = require('express');
-const router = require('.');
-const rotuter = express.Router()
+const express = require('express')
+const router = express.Router()
 
 // All Authors Route
 router.get('/', (req,res)=> {
@@ -15,4 +14,4 @@ router.post('/', (req, res)=> {
     res.send('Create')
 })
 
-module.exports = author;
+module.exports = router;
